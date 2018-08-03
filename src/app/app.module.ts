@@ -12,13 +12,13 @@ import { Component } from '@angular/core';
     <div><router-outlet></router-outlet></div>
   `,
 })
-export class AppComponent  {}
+export class AppComponent {}
 
 @Component({template: 'page one'})
-export class PageOneComponent  {}
+export class PageOneComponent {}
 
 @Component({template: 'page two'})
-export class PageTwoComponent  {}
+export class PageTwoComponent {}
 
 
 @NgModule({
@@ -31,6 +31,6 @@ export class PageTwoComponent  {}
     ]),
     BrowserModule
   ],
-  bootstrap:    [ AppComponent ]
+  bootstrap: [ AppComponent ]
 })
 export class AppModule { }
