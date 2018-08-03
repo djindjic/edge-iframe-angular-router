@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { Component } from '@angular/core';
 
@@ -28,7 +27,7 @@ export class PageTwoComponent  {}
     RouterModule.forRoot([
       { path: 'page-one', component: PageOneComponent },
       { path: 'page-two', component: PageTwoComponent },
-      { path: '', component: PageTwoComponent },
+      { path: '**', component: PageOneComponent },
     ]),
     BrowserModule
   ],
