@@ -3,12 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule, Resolve, ActivatedRouteSnapshot } from '@angular/router';
 import { Component } from '@angular/core';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
-import { Observable } from '../../node_modules/rxjs';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
   template: `
-    <a routerLink="/page-one">one</a> |
+    <a routerLink="/">one</a> |
     <a routerLink="/page-two">two</a>
     <div><router-outlet></router-outlet></div>
   `,
@@ -36,17 +36,12 @@ export class UsersResolver implements Resolve<any> {
   imports: [
     HttpClientModule,
     RouterModule.forRoot([
-      { path: 'page-one', component: PageOneComponent },
-      {
-        path: 'page-two',
-        component: PageTwoComponent,
-        resolve: {
-          users: UsersResolver,
-        },
+      { path: '', component: PageOneComponent },
+      { path: 'page-two', component: PageTwoComponent,
+        resolve: { users: UsersResolver },
       },
-      { path: '**', component: PageOneComponent },
     ]),
-    BrowserModule
+    BrowserModule,
   ],
   providers: [ UsersResolver ],
   bootstrap: [ AppComponent ],
